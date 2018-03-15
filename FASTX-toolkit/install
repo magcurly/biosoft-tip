@@ -1,0 +1,45 @@
+#This is a file for FASTX TOOLKITS.
+
+I have several problems during the installation.
+
+First, libgtextutils.
+Before installing the fastx toolkits, you have to install libgtextutils.
+The problem is that you have to export the environmental variables as the README file of the FASTX TOOLKITS installation package told you.
+Otherwise, it's IMPOSSIBLE that the ./configure can recognize that you have installed the library.
+
+Like This way:
+export GTEXTUTILS_LIBS=/path/to/your/libgtextutils/lib
+export GTEXTUTILS_CFLAGS=/path/to/your/libgtextutils/include
+
+Second, make.
+I don't know whether this is the problem that I am not the root user of the system.
+During the make step, when building with gtextutils library, it's not capable to carry on unless identifying the absolute path of the head files using in the cpp for building.
+You have to change it like this:
+#include </path/to/your/libgtextutils/include/gtextutils/gtextutils/stream_wrapper.h>
+#include </path/to/your/libgtextutils/include/gtextutils/gtextutils/text_line_reader.h>
+#include </path/to/your/libgtextutils/include/gtextutils/gtextutils/string_tokenize.h>
+#include </path/to/your/libgtextutils/include/gtextutils/gtextutils/container_join.h>
+
+This will happen in building fastx_uncollapser and fasta_formatter.
+
+Third, still make.
+I have no idea why this would come out.
+
+ERROR happens as below:
+/path/to/your/libgtextutils/lib: file not recognized: Is a directory
+collect2: error: ld returned 1 exit status
+make: *** [Makefile:414: fasta_formatter] Error 1
+
+To solve this problem, you have to do the g++ step manually.
+g++ -g -O2 -std=c++11 -Wall -Wextra -Wformat-nonliteral -Wformat-security -Wswitch-default -Wswitch-enum -Wunused-parameter -Wfloat-equal -Werror -DDEBUG -g -O1 -o fasta_formatter fasta_formatter.o /path/to/your/libgtextutils/lib/libgtextutils.a -I /path/to/your/libgtextutils/include ../libfastx/libfastx.a -L/path/to/your/libgtextutils/lib
+
+ESPECIALLY, THIS FILE!
+/path/to/your/libgtextutils/lib/libgtextutils.a
+The make step couldn't automatically identify this file and have to add this file by yourselves!
+
+This is the end of this installation tips of fastx toolkits.
+
+If you have better suggestions, please add a comment.
+
+Yours,
+Margaret C
