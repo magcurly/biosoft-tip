@@ -1,0 +1,7 @@
+Msort is a very old software which was developed to sort SOAP output file.
+I found it in an IMG annotation pipeline when the connect blast step is unavailable.
+Fortuantely, I found the source code of the connect blast step, and successfully replace the command of the old one.
+
+I met a problem which can only be solved by lowering the version of g++. The present version of my g++ is 5.4.0 but the required version is 4.4.+ to 4.7.-.
+Therefore, I used the in-built g++ of the RedHat Linux system whose version is 4.4.7.
+SOAPsnp has the same problem.
