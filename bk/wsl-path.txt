@@ -1,0 +1,3 @@
+Back up for the Windows Subsystem of Linux
+
+home to magcurly: C:\Users\fosha\AppData\Local\Packages\CanonicalGroupLimited.Ubuntu18.04onWindows_79rhkp1fndgsc\LocalState\rootfs\home\magcurly
