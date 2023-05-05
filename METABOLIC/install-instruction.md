@@ -25,7 +25,7 @@ Step 1 Install All conda-depended packages
 ```  
 Have to notice that, without `r=3.6` in mamba installation, the wrapper would ask you to automatically update R to the latest version. <br> 
 
-Then you are gonna run R for R dependencies. <br> 
+Step 2 You are gonna run R for R dependencies. <br> 
 ```
   install.package("BiocManager")
   # to ensure correct installation of openxlsx or tidyverse or tidyr
@@ -35,3 +35,5 @@ Then you are gonna run R for R dependencies. <br>
     "openxlsx")
 ```
 Version of R packages do not matter.
+
+Step 3 git clone the METABOLIC repository and start preparation for references under the instructions provided by METABOLIC. <br> 
