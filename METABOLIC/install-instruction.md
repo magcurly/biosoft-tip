@@ -32,7 +32,7 @@ Step 2 You are gonna run R for R dependencies. <br>
   install.packages("stringi", configure.args="--disable-pkg-config") 
   BiocManager::install(c("diagram","forcats","digest","htmltools","rmarkdown","reprex","tidyverse",
     "ggthemes","ggalluvial","reshape2","ggraph","pdftools","igraph","tidygraph","stringr","plyr","dplyr",
-    "openxlsx")
+    "openxlsx"))
 ```
 Version of R packages do not matter.
 
